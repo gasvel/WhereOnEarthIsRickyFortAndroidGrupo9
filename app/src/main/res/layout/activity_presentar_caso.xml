@@ -4,29 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/miami"
     tools:context="com.example.gaston.rickyapp.PresentarCasoActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="373dp"
         android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:autoText="false"
         android:fontFamily="sans-serif-condensed"
         android:text="Detective tenemos un caso para usted:"
-        android:textColor="@android:color/black"
+        android:textColor="?android:attr/colorBackgroundFloating"
         android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="368dp"
         android:layout_height="230dp"
-        tools:layout_editor_absoluteX="8dp"
         android:layout_marginTop="19dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="8dp" />
 
     <Button
         android:id="@+id/button2"
@@ -37,7 +39,7 @@
         android:layout_marginTop="67dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="aceptarCaso"
-        android:text="Acreptar caso"
+        android:text="Aceptar caso"
         android:textColor="@android:color/background_light"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />

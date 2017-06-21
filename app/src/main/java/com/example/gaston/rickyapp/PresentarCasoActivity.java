@@ -18,7 +18,7 @@ public class PresentarCasoActivity extends AppCompatActivity {
     }
 
     public void aceptarCaso(View view){
-        Intent i = new Intent(this, ResolverMisterioActivity.class);
+        Intent i = new Intent(this, OrdenDeArrestoActivity.class);
         startActivity(i);
     }
 }

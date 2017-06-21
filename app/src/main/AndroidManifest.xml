@@ -16,7 +16,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".PresentarCasoActivity" />
-        <activity android:name=".ResolverMisterioActivity"></activity>
+        <activity android:name=".PedirPistasActivity"></activity>
+
+
+
+
+
+        <activity
+            android:name=".OrdenDeArrestoActivity"
+            android:parentActivityName=".PresentarCasoActivity" >
+        </activity>
+        <activity
+            android:name=".ViajarActivity"
+            android:parentActivityName=".PedirPistasActivity" >
+        </activity>
+
+
     </application>
 
 </manifest>
