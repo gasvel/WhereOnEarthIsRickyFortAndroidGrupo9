@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/miami"
     android:orientation="vertical"
-    tools:context="com.example.gaston.rickyapp.PresentarCasoActivity">
+    tools:context="com.example.gaston.rickyapp.PresentarCasoActivity"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,15 +30,11 @@
         android:text="Emitir orden contra: "
         android:textSize="18sp" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:dropDownWidth="wrap_content"
-        android:elevation="12dp"
-        android:entries="@android:drawable/arrow_down_float"
-        android:spinnerMode="dropdown"
-        android:visibility="visible"></Spinner>
+    <ListView
+        android:id="@+id/listVillanos"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="0.45" />
 
     <Button
         android:id="@+id/btnPedirOrden"
