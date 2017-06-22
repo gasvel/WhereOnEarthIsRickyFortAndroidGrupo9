@@ -64,8 +64,8 @@
         android:layout_height="wrap_content"
         android:text="Orden de arresto emitida a:"
         app:layout_constraintBottom_toTopOf="@+id/button7"
-        android:layout_marginBottom="39dp"
-        android:layout_marginLeft="29dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="32dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ExpandableListView

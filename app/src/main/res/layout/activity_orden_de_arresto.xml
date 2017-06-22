@@ -34,7 +34,8 @@
         android:id="@+id/listVillanos"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_weight="0.45" />
+        android:layout_weight="0.45"
+        android:background="?attr/colorButtonNormal" />
 
     <Button
         android:id="@+id/btnPedirOrden"

@@ -1,4 +1,4 @@
-package com.example.gaston.rickyapp;
+package com.example.gaston.rickyapp.model;
 
 
 import java.util.List;
