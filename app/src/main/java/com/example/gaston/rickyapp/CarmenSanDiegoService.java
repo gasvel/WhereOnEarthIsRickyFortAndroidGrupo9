@@ -18,4 +18,7 @@ public interface CarmenSanDiegoService {
 
     @POST("/iniciarjuego")
     void iniciarJuego(Callback<Caso> callback);
+
+    @GET("/pistaDelLugar/:lugar/:casoId")
+    void obtenerPista();
 }

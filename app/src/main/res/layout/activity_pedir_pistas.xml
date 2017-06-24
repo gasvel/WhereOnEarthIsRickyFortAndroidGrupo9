@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonL1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="148dp"
@@ -28,24 +28,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonL2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="148dp"
-        android:layout_marginTop="46dp"
         android:text="Lugar 2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        tools:layout_editor_absoluteY="179dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonL3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="148dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="62dp"
         android:text="Lugar 3"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonL2" />
 
     <Button
         android:id="@+id/button7"
@@ -59,7 +58,7 @@
         app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonL3" />
 
     <Button
         android:id="@+id/button8"
@@ -70,7 +69,7 @@
         android:onClick="ordenDeArresto"
         android:text="Orden De Arresto"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonL3" />
 
     <TextView
         android:id="@+id/textView4"
