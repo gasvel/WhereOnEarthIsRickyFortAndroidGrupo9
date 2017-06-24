@@ -1,10 +1,9 @@
 package com.example.gaston.rickyapp.model;
 
-/**
- * Created by Gaston on 22/06/2017.
- */
 
-public class PaisNombre {
+import java.io.Serializable;
+
+public class PaisNombre implements Serializable {
 
     private int id;
     private String nombre;

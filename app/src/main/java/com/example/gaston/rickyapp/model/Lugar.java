@@ -1,8 +1,9 @@
 package com.example.gaston.rickyapp.model;
 
 
+import java.io.Serializable;
 
-public class Lugar {
+public class Lugar implements Serializable{
 
     private String nombre;
 

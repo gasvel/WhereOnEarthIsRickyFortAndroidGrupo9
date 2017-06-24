@@ -1,9 +1,10 @@
 package com.example.gaston.rickyapp.model;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Caso {
+public class Caso implements Serializable{
     private int id;
     private Pais pais;
     private List<PaisNombre> paisesVisitados;

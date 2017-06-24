@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -15,13 +14,15 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.gaston.rickyapp.model.Caso;
+import com.example.gaston.rickyapp.model.Villano;
 
 
 public class OrdenDeArrestoActivity extends Activity {
 
+    private Caso actual;
     private ListView listVillanos;
     private List<String> listaVillanosNombres = new ArrayList<String>();
 
@@ -30,6 +31,7 @@ public class OrdenDeArrestoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orden_de_arresto);
         CarmenSanDiegoService service = this.createService();
+        actual = (Caso) getIntent().getExtras().get("caso");
         service.getVillanos(new Callback<List<Villano>>(){
             @Override
             public void success(List<Villano> villanos, Response response) {
@@ -46,12 +48,14 @@ public class OrdenDeArrestoActivity extends Activity {
 
     public void viajar(View view) {
         Intent i = new Intent(this, ViajarActivity.class);
+        i.putExtra("caso",actual);
+        this.finish();
         startActivity(i);
     }
 
     private CarmenSanDiegoService createService(){
         String SERVER_IP = "10.0.2.2"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
-        String SERVER_IP_GENY = "192.168.56.1";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
+        String SERVER_IP_GENY = "192.168.0.100";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP_GENY +":9000";
 
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(API_URL).build();
@@ -61,6 +65,8 @@ public class OrdenDeArrestoActivity extends Activity {
 
     public void buscarPistas(View view){
         Intent i = new Intent(this, PedirPistasActivity.class);
+        i.putExtra("caso",actual);
+        this.finish();
         startActivity(i);
     }
 

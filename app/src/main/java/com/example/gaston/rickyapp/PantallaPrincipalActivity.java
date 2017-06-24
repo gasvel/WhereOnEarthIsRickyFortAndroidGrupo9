@@ -22,6 +22,7 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
     }
 
     public void iniciarJuego(View view){
+
         Intent i = new Intent(this, PresentarCasoActivity.class);
         startActivity(i);
     }

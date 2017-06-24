@@ -9,11 +9,13 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="354dp"
-        android:layout_height="40dp"
+        android:layout_width="70dp"
+        android:layout_height="28dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:text="Estas en: "
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,9 +78,21 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="16dp"
         android:text="Orden de arresto emitida a:"
         app:layout_constraintBottom_toTopOf="@+id/button8"
-        tools:layout_editor_absoluteX="181dp" />
+        android:layout_marginRight="33dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/paisActual"
+        android:layout_width="87dp"
+        android:layout_height="31dp"
+        android:layout_marginLeft="31dp"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp" />
 
 </android.support.constraint.ConstraintLayout>
