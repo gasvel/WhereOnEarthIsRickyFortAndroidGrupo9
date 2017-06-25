@@ -19,6 +19,6 @@ public interface CarmenSanDiegoService {
     @POST("/iniciarjuego")
     void iniciarJuego(Callback<Caso> callback);
 
-    @GET("/pistaDelLugar/:lugar/:casoId")
-    void obtenerPista();
+    @POST("/viajar/{PaisId}")
+    void viajarAPais(@retrofit.http.Path("PaisId") int id, Callback<Caso> callback);
 }
