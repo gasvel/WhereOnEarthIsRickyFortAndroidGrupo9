@@ -9,6 +9,9 @@ public class Caso implements Serializable{
     private Pais pais;
     private List<PaisNombre> paisesVisitados;
     private List<PaisNombre> paisesFallidos;
+    private Lugar lugar1;
+    private Lugar lugar2;
+    private Lugar lugar3;
 
     public Caso(int nId, Pais nPais, List<PaisNombre> nVisitados, List<PaisNombre> nFallidos){
         this.id = nId;
@@ -19,6 +22,18 @@ public class Caso implements Serializable{
 
     public Caso(){
 
+    }
+
+    public Lugar getLugar1() {
+        return lugar1;
+    }
+
+    public Lugar getLugar2() {
+        return lugar2;
+    }
+
+    public Lugar getLugar3() {
+        return lugar3;
     }
 
     public int getId() {

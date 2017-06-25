@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="148dp"
         android:layout_marginTop="73dp"
+        android:onClick="revisarPista1"
         android:text="Lugar 1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="148dp"
+        android:onClick="revisarPista2"
         android:text="Lugar 2"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteY="179dp" />
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="148dp"
         android:layout_marginTop="62dp"
+        android:onClick="revisarPista3"
         android:text="Lugar 3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonL2" />
