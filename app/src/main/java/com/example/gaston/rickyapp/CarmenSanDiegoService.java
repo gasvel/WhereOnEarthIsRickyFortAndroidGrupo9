@@ -13,6 +13,7 @@ import retrofit.http.POST;
 
 import java.util.List;
 
+import javax.xml.transform.Result;
 
 
 public interface CarmenSanDiegoService {
@@ -26,6 +27,9 @@ public interface CarmenSanDiegoService {
     @POST("/viajar/{PaisId}")
     void viajarAPais(@retrofit.http.Path("PaisId") int id, Callback<Caso> callback);
 
-    @GET("pistaDelLugar/:lugar/{casoId}")
-    void darPista(@Body Lugar lugar, @retrofit.http.Path("casoId") int id, Callback<PistaAdapter> callback);
+    @GET("pistaDelLugar/{:lugar}/{casoId}")
+    void darPista(@retrofit.http.Path("lugar") String lugar, @retrofit.http.Path("casoId") int id, Callback<PistaAdapter> callback);
+
+    @POST("emitirOrdenPara/{VillanoId}/{CasoId}")
+    void emitirOrden(@retrofit.http.Path("VillanoId") int villanoId, @retrofit.http.Path("CasoId") int id, Callback<Result> callback);
 }

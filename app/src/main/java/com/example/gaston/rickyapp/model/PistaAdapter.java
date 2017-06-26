@@ -1,10 +1,10 @@
 package com.example.gaston.rickyapp.model;
 
-/**
- * Created by matias on 24/06/17.
- */
+import java.io.Serializable;
 
-public class PistaAdapter {
+
+
+public class PistaAdapter implements Serializable{
 
     String pista;
 

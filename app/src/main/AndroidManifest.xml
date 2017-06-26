@@ -21,10 +21,14 @@
         <activity android:name=".PedirPistasActivity" />
         <activity
             android:name=".OrdenDeArrestoActivity"
-            android:parentActivityName=".PresentarCasoActivity"></activity>
+            android:parentActivityName=".PresentarCasoActivity"/>
         <activity
             android:name=".ViajarActivity"
-            android:parentActivityName=".PedirPistasActivity"></activity>
+            android:parentActivityName=".PedirPistasActivity"/>
+        <activity
+            android:name=".MostrarPistaActivity"
+            />
+
     </application>
 
 </manifest>

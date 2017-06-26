@@ -15,12 +15,9 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-/**
- * Created by matias on 24/06/17.
- */
 
 
-class MostrarPistaActivity extends AppCompatActivity{
+public class MostrarPistaActivity extends AppCompatActivity{
 
     private Caso caso;
     private Lugar lugar;
@@ -38,8 +35,8 @@ class MostrarPistaActivity extends AppCompatActivity{
     }
 
     private CarmenSanDiegoService createService() {
-        String SERVER_IP = "192.168.0.108"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
-        String SERVER_IP_GENY = "192.168.0.108";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
+        String SERVER_IP = "192.168.0.101"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP_GENY = "192.168.0.101";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(API_URL).build();
@@ -50,7 +47,9 @@ class MostrarPistaActivity extends AppCompatActivity{
     private void actualizarDatos() {
         this.caso = (Caso) getIntent().getExtras().get("caso");
         this.lugar = (Lugar) getIntent().getExtras().get("lugar");
-        this.service.darPista(this.lugar, this.caso.getId(), new Callback<PistaAdapter>() {
+        TextView nombreLugar = (TextView) findViewById(R.id.nombreLugar) ;
+        nombreLugar.setText(lugar.getNombre());
+        this.service.darPista(this.lugar.getNombre(), this.caso.getId(), new Callback<PistaAdapter>() {
             @Override
             public void success(PistaAdapter pistaAdapter, Response response) {
                 mostrarLaPista(pistaAdapter);

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Villano {
 
+    private int id;
     private String nombre;
     private String sexo;
     private List<String> senas_particulares;
@@ -19,6 +20,14 @@ public class Villano {
 
     public Villano(){
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

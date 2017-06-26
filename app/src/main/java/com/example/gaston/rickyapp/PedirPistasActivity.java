@@ -37,37 +37,32 @@ public class PedirPistasActivity extends AppCompatActivity {
         nombre = (TextView) findViewById(R.id.paisActual);
         nombre.setText(actual.getNombre());
         botonLugar1 = (Button) findViewById(R.id.buttonL1);
-        botonLugar1.setText(this.parseCharSequence(caso.getLugar1().getNombre()));
+        botonLugar1.setText(caso.getPais().getLugares().get(0).getNombre());
         botonLugar2 = (Button) findViewById(R.id.buttonL2);
-        botonLugar2.setText( this.parseCharSequence(caso.getLugar2().getNombre()) );
+        botonLugar2.setText( caso.getPais().getLugares().get(1).getNombre() );
         botonLugar3 = (Button) findViewById(R.id.buttonL3);
-        botonLugar3.setText(this.parseCharSequence(caso.getLugar3().getNombre()));
+        botonLugar3.setText(caso.getPais().getLugares().get(2).getNombre());
     }
 
-    public CharSequence parseCharSequence(String cadena){
 
-        CharSequence cs = cadena;
-
-        return cs;
-    }
 
     public void revisarPista1(View view) {
         Intent i = new Intent(this, MostrarPistaActivity.class);
-        i.putExtra("lugar",this.caso.getLugar1());
+        i.putExtra("lugar",caso.getPais().getLugares().get(0));
         i.putExtra("caso", this.caso);
         startActivity(i);
     }
 
     public void revisarPista2(View view) {
         Intent i = new Intent(this, MostrarPistaActivity.class);
-        i.putExtra("lugar",this.caso.getLugar2());
+        i.putExtra("lugar",caso.getPais().getLugares().get(1));
         i.putExtra("caso", this.caso);
         startActivity(i);
     }
 
     public void revisarPista3(View view) {
         Intent i = new Intent(this, MostrarPistaActivity.class);
-        i.putExtra("lugar",this.caso.getLugar3());
+        i.putExtra("lugar",caso.getPais().getLugares().get(2));
         i.putExtra("caso", this.caso);
         startActivity(i);
     }
