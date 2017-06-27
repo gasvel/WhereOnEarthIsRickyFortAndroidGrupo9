@@ -1,9 +1,10 @@
 package com.example.gaston.rickyapp.model;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Villano {
+public class Villano implements Serializable {
 
     private int id;
     private String nombre;

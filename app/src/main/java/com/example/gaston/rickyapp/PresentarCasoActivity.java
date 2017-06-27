@@ -85,7 +85,7 @@ public class PresentarCasoActivity extends AppCompatActivity {
     }
 
     private CarmenSanDiegoService createService(){
-        String SERVER_IP = "192.168.0.104"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.0.109"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.108";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
@@ -97,6 +97,8 @@ public class PresentarCasoActivity extends AppCompatActivity {
     public void aceptarCaso(View view){
         Intent i = new Intent(this,PedirPistasActivity.class);
         i.putExtra("caso", casoActual);
+        i.putExtra("villanoConOrden", new Villano());
+
         this.finish();
         startActivity(i);
     }

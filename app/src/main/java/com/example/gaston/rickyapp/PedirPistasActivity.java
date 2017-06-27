@@ -12,6 +12,7 @@ import com.example.gaston.rickyapp.model.Caso;
 import com.example.gaston.rickyapp.model.Lugar;
 import com.example.gaston.rickyapp.model.Pais;
 import com.example.gaston.rickyapp.model.PistaAdapter;
+import com.example.gaston.rickyapp.model.Villano;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class PedirPistasActivity extends AppCompatActivity {
     private Button botonLugar3;
     private Caso caso;
     private CarmenSanDiegoService service;
+    private Villano villanoConOrden;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,11 @@ public class PedirPistasActivity extends AppCompatActivity {
     }
 
     private void actualizarDatos() {
+        villanoConOrden = (Villano) getIntent().getExtras().get("villanoConOrden");
+        if(villanoConOrden.getNombre() != null){
+            TextView villano = (TextView) findViewById(R.id.villanoNombre);
+            villano.setText(villanoConOrden.getNombre());
+        }
         this.caso = (Caso) getIntent().getExtras().get("caso");
         actual = caso.getPais();
         nombre = (TextView) findViewById(R.id.paisActual);
@@ -55,7 +62,7 @@ public class PedirPistasActivity extends AppCompatActivity {
     }
 
     private CarmenSanDiegoService createService() {
-        String SERVER_IP = "192.168.0.104"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.0.109"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.101";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
@@ -108,12 +115,16 @@ public class PedirPistasActivity extends AppCompatActivity {
     public void ordenDeArresto(View view) {
         Intent i = new Intent(this, OrdenDeArrestoActivity.class);
         i.putExtra("caso",this.caso);
+        i.putExtra("villanoConOrden",villanoConOrden);
+        this.finish();
         startActivity(i);
     }
 
     public void viajar(View view){
         Intent i = new Intent(this, ViajarActivity.class);
         i.putExtra("caso",this.caso);
+        i.putExtra("villanoConOrden",villanoConOrden);
+        this.finish();
         startActivity(i);
     }
 }
