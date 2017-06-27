@@ -41,7 +41,7 @@ public class ViajarActivity extends Activity {
     }
 
     private CarmenSanDiegoService createService(){
-        String SERVER_IP = "192.168.0.104"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.0.109"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.108";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
@@ -59,24 +59,25 @@ public class ViajarActivity extends Activity {
 
                 @Override
                 public void failure(RetrofitError error) {
-
+                    error.printStackTrace();
                 }
             });
         }
         else{
-            Toast.makeText(ViajarActivity.this,"No hay ningun pais seleccionado",Toast.LENGTH_SHORT);
+            Toast.makeText(ViajarActivity.this,"No hay ningun pais seleccionado",Toast.LENGTH_SHORT).show();
         }
     }
 
     public void actualizarDatos(Caso caso){
+
+        actual = caso;
+        paisActual = caso.getPais();
+        paisId = null;
         villanoConOrden = (Villano) getIntent().getExtras().get("villanoConOrden");
         if(villanoConOrden.getNombre() != null){
             TextView villano = (TextView) findViewById(R.id.nombreVillanoViajar);
             villano.setText(villanoConOrden.getNombre());
         }
-        actual = caso;
-        paisActual = caso.getPais();
-        paisId = null;
         TextView nombre = (TextView) findViewById(R.id.nombreLugar);
         nombre.setText(paisActual.getNombre());
         ListView lista = (ListView) findViewById(R.id.listaPaises);

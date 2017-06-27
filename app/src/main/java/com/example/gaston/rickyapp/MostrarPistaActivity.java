@@ -1,8 +1,10 @@
 package com.example.gaston.rickyapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +42,19 @@ public class MostrarPistaActivity extends AppCompatActivity{
         lugar = (Lugar) getIntent().getExtras().get("lugar");
         TextView nombreLugar = (TextView) findViewById(R.id.nombreLugar) ;
         nombreLugar.setText(lugar.getNombre());
+        if(pista.getPista().contains("Atrapaste")){
+            Button finish = (Button) findViewById(R.id.finishButton);
+            finish.setVisibility(View.VISIBLE);
+            Button accept = (Button) findViewById(R.id.aceptarBoton);
+            accept.setVisibility(View.INVISIBLE);
+        }
 
+    }
+
+    public void finish(View view){
+        this.finish();
+        Intent i = new Intent(this, PantallaPrincipalActivity.class);
+        startActivity(i);
     }
 
     public void accept(View view){
