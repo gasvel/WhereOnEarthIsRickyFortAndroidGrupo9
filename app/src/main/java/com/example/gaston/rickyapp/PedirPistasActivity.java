@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gaston.rickyapp.model.Caso;
+import com.example.gaston.rickyapp.model.Lugar;
 import com.example.gaston.rickyapp.model.Pais;
+import com.example.gaston.rickyapp.model.PistaAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class PedirPistasActivity extends AppCompatActivity {
 
@@ -21,11 +29,13 @@ public class PedirPistasActivity extends AppCompatActivity {
     private Button botonLugar2;
     private Button botonLugar3;
     private Caso caso;
+    private CarmenSanDiegoService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedir_pistas);
+        service = this.createService();
         if(getIntent().getExtras() != null) {
             this.actualizarDatos();
         }
@@ -44,27 +54,55 @@ public class PedirPistasActivity extends AppCompatActivity {
         botonLugar3.setText(caso.getPais().getLugares().get(2).getNombre());
     }
 
+    private CarmenSanDiegoService createService() {
+        String SERVER_IP = "192.168.0.104"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP_GENY = "192.168.0.101";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
+        String API_URL = "http://"+ SERVER_IP +":9000";
 
+        RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(API_URL).build();
+        CarmenSanDiegoService juegoService = restAdapter.create(CarmenSanDiegoService.class);
+        return juegoService;
+    }
+
+
+    public void buscarPista(final Lugar lugar){
+        service.darPista(lugar.getNombre(), caso.getId(), new Callback<PistaAdapter>() {
+            @Override
+            public void success(PistaAdapter pistaAdapter, Response response) {
+
+                mostrarPista(pistaAdapter,lugar);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                error.printStackTrace();
+                Toast.makeText(PedirPistasActivity.this,"No me vino ninguna pista",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    public void mostrarPista(PistaAdapter pista ,Lugar lugar){
+        Intent i = new Intent(this, MostrarPistaActivity.class);
+        i.putExtra("lugar",lugar);
+        i.putExtra("pista", pista);
+        startActivity(i);
+    }
 
     public void revisarPista1(View view) {
-        Intent i = new Intent(this, MostrarPistaActivity.class);
-        i.putExtra("lugar",caso.getPais().getLugares().get(0));
-        i.putExtra("caso", this.caso);
-        startActivity(i);
+        buscarPista(caso.getPais().getLugares().get(0));
+
+
     }
 
     public void revisarPista2(View view) {
-        Intent i = new Intent(this, MostrarPistaActivity.class);
-        i.putExtra("lugar",caso.getPais().getLugares().get(1));
-        i.putExtra("caso", this.caso);
-        startActivity(i);
+        buscarPista(caso.getPais().getLugares().get(1));
+
     }
 
     public void revisarPista3(View view) {
-        Intent i = new Intent(this, MostrarPistaActivity.class);
-        i.putExtra("lugar",caso.getPais().getLugares().get(2));
-        i.putExtra("caso", this.caso);
-        startActivity(i);
+        buscarPista(caso.getPais().getLugares().get(2));
+
     }
 
     public void ordenDeArresto(View view) {

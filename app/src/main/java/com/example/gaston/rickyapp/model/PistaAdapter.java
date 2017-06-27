@@ -6,10 +6,10 @@ import java.io.Serializable;
 
 public class PistaAdapter implements Serializable{
 
-    String pista;
+    String pista ;
 
     public PistaAdapter(String p){
-        this.pista = p;
+        pista = p;
     }
 
     public PistaAdapter(){

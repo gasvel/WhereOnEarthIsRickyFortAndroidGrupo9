@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gaston.rickyapp.model.Caso;
@@ -51,6 +52,32 @@ public class PresentarCasoActivity extends AppCompatActivity {
 
         prst = (TextView) findViewById(R.id.presentacionCaso);
         prst.setText(presentacion);
+
+
+        if(presentacion.contains("Brasil")){
+            ImageView img = (ImageView) findViewById(R.id.imagenPais);
+            img.setImageResource(R.drawable.cristo_redentor);
+        }
+
+        if(presentacion.contains("Argentina")){
+            ImageView img = (ImageView) findViewById(R.id.imagenPais);
+            img.setImageResource(R.drawable.obelisco);
+        }
+
+        if(presentacion.contains("Mexico")){
+            ImageView img = (ImageView) findViewById(R.id.imagenPais);
+            img.setImageResource(R.drawable.mariachi);
+        }
+
+        if(presentacion.contains("EEUU")){
+            ImageView img = (ImageView) findViewById(R.id.imagenPais);
+            img.setImageResource(R.drawable.trump1);
+        }
+
+        if(presentacion.contains("Alemania")){
+            ImageView img = (ImageView) findViewById(R.id.imagenPais);
+            img.setImageResource(R.drawable.hitla);
+        }
     }
 
     public void salir(View view){
@@ -58,7 +85,7 @@ public class PresentarCasoActivity extends AppCompatActivity {
     }
 
     private CarmenSanDiegoService createService(){
-        String SERVER_IP = "192.168.0.101"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.0.104"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.108";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 

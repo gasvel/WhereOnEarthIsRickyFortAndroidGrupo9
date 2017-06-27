@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -30,9 +31,12 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
     public void desactivarSonido(View view){
         if(mp!=null) {
             if (mp.isPlaying()) {
-
+                ImageButton btn = (ImageButton)findViewById(R.id.imageButton);
+                btn.setSelected(true);
                 mp.pause();
        } else {
+                ImageButton btn = (ImageButton)findViewById(R.id.imageButton);
+                btn.setSelected(false);
                 mp.start();
             }
         }

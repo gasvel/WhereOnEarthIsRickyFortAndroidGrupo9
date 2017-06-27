@@ -3,11 +3,9 @@ package com.example.gaston.rickyapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +39,7 @@ public class ViajarActivity extends Activity {
     }
 
     private CarmenSanDiegoService createService(){
-        String SERVER_IP = "192.168.0.108"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.0.104"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.108";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
@@ -72,7 +70,7 @@ public class ViajarActivity extends Activity {
         actual = caso;
         paisActual = caso.getPais();
         paisId = null;
-        TextView nombre = (TextView) findViewById(R.id.nombrePais);
+        TextView nombre = (TextView) findViewById(R.id.nombreLugar);
         nombre.setText(paisActual.getNombre());
         ListView lista = (ListView) findViewById(R.id.listaPaises);
         ArrayAdapter adapter = new PaisListAdapter(ViajarActivity.this,R.id.listaPaises, paisActual.getConexiones());
@@ -80,6 +78,7 @@ public class ViajarActivity extends Activity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 PaisNombre item = (PaisNombre) parent.getItemAtPosition(position);
 
                 paisId = item.getId();
@@ -88,7 +87,7 @@ public class ViajarActivity extends Activity {
         TextView listaRecorrido = (TextView) findViewById(R.id.recorrido);
         String paisesRecorridos = "";
         for(PaisNombre pais : actual.getPaisesVisitados()){
-            paisesRecorridos= paisesRecorridos + pais.getNombre() + ", ";
+            paisesRecorridos= paisesRecorridos + pais.getNombre() + " > ";
         }
         listaRecorrido.setText(paisesRecorridos);
     }
