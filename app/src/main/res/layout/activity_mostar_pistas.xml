@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/infoPista"
-        android:layout_width="380dp"
-        android:layout_height="185dp"
+        android:layout_width="369dp"
+        android:layout_height="186dp"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="108dp"
         android:background="@android:color/background_light"

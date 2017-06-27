@@ -43,7 +43,7 @@ public class MostrarPistaActivity extends AppCompatActivity{
 
     }
 
-    private void accept(View view){
+    public void accept(View view){
         this.finish();
     }
 
