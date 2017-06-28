@@ -43,11 +43,10 @@ public class PaisListAdapter extends ArrayAdapter<PaisNombre> {
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView label = new TextView(context);
         label.setTextColor(Color.BLACK);
-        // Then you can get the current item using the values array (Users array) and the current position
-        // You can NOW reference each method you has created in your bean object (User class)
+        label.setTextSize(18);
         label.setText(values.get(position).getNombre());
 
-        // And finally return your dynamic (or custom) view for each spinner item
+
         return label;
     }
 }

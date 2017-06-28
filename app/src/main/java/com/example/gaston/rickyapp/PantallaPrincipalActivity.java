@@ -32,11 +32,11 @@ public class PantallaPrincipalActivity extends AppCompatActivity {
         if(mp!=null) {
             if (mp.isPlaying()) {
                 ImageButton btn = (ImageButton)findViewById(R.id.imageButton);
-                btn.setSelected(true);
+                btn.setImageResource(R.drawable.boton);
                 mp.pause();
        } else {
                 ImageButton btn = (ImageButton)findViewById(R.id.imageButton);
-                btn.setSelected(false);
+                btn.setImageResource(R.drawable.botonsonido);
                 mp.start();
             }
         }

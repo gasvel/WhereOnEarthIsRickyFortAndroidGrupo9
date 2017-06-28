@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,22 @@ public class MostrarPistaActivity extends AppCompatActivity{
             finish.setVisibility(View.VISIBLE);
             Button accept = (Button) findViewById(R.id.aceptarBoton);
             accept.setVisibility(View.INVISIBLE);
+            ImageView meme = (ImageView) findViewById(R.id.meme);
+            meme.setImageResource(R.drawable.komo_lo_zupo);
+        }
+        if(pista.getPista().contains("It's a trap")){
+            ImageView meme = (ImageView) findViewById(R.id.meme);
+            meme.setImageResource(R.drawable.trap);
+        }
+
+        if(pista.getPista().contains("generaste")){
+            ImageView meme = (ImageView) findViewById(R.id.meme);
+            meme.setImageResource(R.drawable.fin_sad);
+        }
+
+        if(pista.getPista().contains("boludo")){
+            ImageView meme = (ImageView) findViewById(R.id.meme);
+            meme.setImageResource(R.drawable.atendedor);
         }
 
     }

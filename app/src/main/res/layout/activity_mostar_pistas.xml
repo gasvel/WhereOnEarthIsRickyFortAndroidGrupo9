@@ -69,4 +69,14 @@
         android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoPista" />
+
+    <ImageView
+        android:id="@+id/meme"
+        android:layout_width="155dp"
+        android:layout_height="99dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoPista"
+        app:srcCompat="@android:color/transparent" />
 </android.support.constraint.ConstraintLayout>
