@@ -73,19 +73,19 @@ public class PedirPistasActivity extends AppCompatActivity {
 
 
     public void buscarPista(final Lugar lugar){
-        service.darPista(lugar.getNombre(), caso.getId(), new Callback<PistaAdapter>() {
-            @Override
-            public void success(PistaAdapter pistaAdapter, Response response) {
+  //      service.darPista(lugar.getNombre(), caso.getId(), new Callback<PistaAdapter>() {
+ //           @Override
+   //         public void success(PistaAdapter pistaAdapter, Response response) {
 
-                mostrarPista(pistaAdapter,lugar);
-            }
+     //           mostrarPista(pistaAdapter,lugar);
+       //     }
 
-            @Override
-            public void failure(RetrofitError error) {
-                error.printStackTrace();
-                Toast.makeText(PedirPistasActivity.this,"No me vino ninguna pista",Toast.LENGTH_SHORT).show();
-            }
-        });
+         //   @Override
+      //      public void failure(RetrofitError error) {
+      //          error.printStackTrace();
+      //          Toast.makeText(PedirPistasActivity.this,"No me vino ninguna pista",Toast.LENGTH_SHORT).show();
+      //      }
+      //  });
     }
 
 

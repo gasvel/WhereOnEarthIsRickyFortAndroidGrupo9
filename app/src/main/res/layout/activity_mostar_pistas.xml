@@ -10,18 +10,21 @@
 
     <TextView
         android:id="@+id/infoPista"
-        android:layout_width="369dp"
-        android:layout_height="186dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="292dp"
+        android:layout_height="192dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="127dp"
         android:background="@android:color/background_light"
         android:text=""
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="140dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -33,13 +36,13 @@
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="40dp" />
 
     <TextView
         android:id="@+id/nombreLugar"
         android:layout_width="122dp"
         android:layout_height="38dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="35dp"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
@@ -55,7 +58,8 @@
         android:onClick="accept"
         android:text="Aceptar"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoPista" />
+        app:layout_constraintTop_toBottomOf="@+id/infoPista"
+        android:layout_marginStart="148dp" />
 
     <Button
         android:id="@+id/finishButton"
@@ -68,7 +72,8 @@
         android:text="Festejar"
         android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoPista" />
+        app:layout_constraintTop_toBottomOf="@+id/infoPista"
+        android:layout_marginStart="16dp" />
 
     <ImageView
         android:id="@+id/meme"
@@ -78,5 +83,6 @@
         android:layout_marginTop="21dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoPista"
-        app:srcCompat="@android:color/transparent" />
+        app:srcCompat="@android:color/transparent"
+        android:layout_marginStart="104dp" />
 </android.support.constraint.ConstraintLayout>
