@@ -67,7 +67,7 @@ public class PreguntaActivity extends AppCompatActivity {
     }
 
     private CarmenSanDiegoService createService() {
-        String SERVER_IP = "192.168.1.40"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.0.105"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.101";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
@@ -134,7 +134,7 @@ public class PreguntaActivity extends AppCompatActivity {
     private void actualizarBotonIncorrecto(){
         switch(this.respuestaElegida){
             case 1: this.boton1.setBackgroundColor(Color.RED);
-
+                    this.boton1.setEnabled(true);
                     break;
             case 2: this.boton2.setBackgroundColor(Color.RED);
                     break;
@@ -154,6 +154,7 @@ public class PreguntaActivity extends AppCompatActivity {
     private void actualizarBotonCorrecto(){
         switch(this.respuestaElegida){
             case 1: this.boton1.setBackgroundColor(Color.GREEN);
+                    this.boton1.setActivated(true);
                 break;
             case 2: this.boton2.setBackgroundColor(Color.GREEN);
                 break;
