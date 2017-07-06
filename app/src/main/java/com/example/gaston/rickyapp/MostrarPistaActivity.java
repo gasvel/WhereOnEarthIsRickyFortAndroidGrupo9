@@ -71,6 +71,7 @@ public class MostrarPistaActivity extends AppCompatActivity{
     public void finish(View view){
         this.finish();
         Intent i = new Intent(this, PantallaPrincipalActivity.class);
+
         startActivity(i);
     }
 

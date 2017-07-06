@@ -12,6 +12,7 @@ import com.example.gaston.rickyapp.model.Caso;
 import com.example.gaston.rickyapp.model.Lugar;
 import com.example.gaston.rickyapp.model.Pais;
 import com.example.gaston.rickyapp.model.PistaAdapter;
+import com.example.gaston.rickyapp.model.Pregunta;
 import com.example.gaston.rickyapp.model.Villano;
 
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class PedirPistasActivity extends AppCompatActivity {
     }
 
     private CarmenSanDiegoService createService() {
-        String SERVER_IP = "192.168.0.105"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
+        String SERVER_IP = "192.168.1.40"; //esta ip se usa para comunicarse con mi localhost en el emulador de Android Studio
         String SERVER_IP_GENY = "192.168.0.101";//esta ip se usa para comunicarse con mi localhost en el emulador de Genymotion
         String API_URL = "http://"+ SERVER_IP +":9000";
 
@@ -73,26 +74,27 @@ public class PedirPistasActivity extends AppCompatActivity {
 
 
     public void buscarPista(final Lugar lugar){
-  //      service.darPista(lugar.getNombre(), caso.getId(), new Callback<PistaAdapter>() {
- //           @Override
-   //         public void success(PistaAdapter pistaAdapter, Response response) {
+        service.darPista(lugar.getNombre(), caso.getId(), new Callback<Pregunta>() {
+            @Override
+            public void success(Pregunta pregunta, Response response) {
 
-     //           mostrarPista(pistaAdapter,lugar);
-       //     }
+                mostrarPregunta(pregunta,lugar);
+         }
 
-         //   @Override
-      //      public void failure(RetrofitError error) {
-      //          error.printStackTrace();
-      //          Toast.makeText(PedirPistasActivity.this,"No me vino ninguna pista",Toast.LENGTH_SHORT).show();
-      //      }
-      //  });
+            @Override
+            public void failure(RetrofitError error) {
+                error.printStackTrace();
+                Toast.makeText(PedirPistasActivity.this,"No me vino ninguna pista",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
-    public void mostrarPista(PistaAdapter pista ,Lugar lugar){
-        Intent i = new Intent(this, MostrarPistaActivity.class);
+    public void mostrarPregunta(Pregunta pregunta ,Lugar lugar){
+        Intent i = new Intent(this, PreguntaActivity.class);
         i.putExtra("lugar",lugar);
-        i.putExtra("pista", pista);
+        i.putExtra("pregunta", pregunta);
+        i.putExtra("caso",this.caso);
         startActivity(i);
     }
 
